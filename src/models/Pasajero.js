@@ -53,5 +53,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true, //esto esta seteado en true hay que hacerlo asi para que funcione
     }
-  });
+  },
+  { timestamps: false 
+  }  
+  );
 };
