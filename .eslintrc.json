@@ -1,0 +1,25 @@
+//ESLint es la herramienta predominante para la tarea de "limpiar" código javascript 
+//tanto en el servidor (node. js) como en el navegador. Dado que javascript es un 
+//lenguaje dinámico y de tipado débil, es especialmente fácil caer en errores humanos 
+//a la hora de escribir código.
+
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "extends": "airbnb/base",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["src", "node_modules"]
+      }
+    }
+  },
+  "rules": {
+     "no-underscore-dangle": 0,
+     "no-param-reassign": 0,
+     "import/no-unresolved": 0
+   }
+}
