@@ -70,7 +70,7 @@ router.get("/pasajeros", async (req, res) => {
         cantpersonas,
         cantnoches,
         pedidoadic,
-        createdInDb //esto es para ver si esta creado en db
+        createdindb //esto es para ver si esta creado en db
     } = req.body
  
 
@@ -84,7 +84,7 @@ router.get("/pasajeros", async (req, res) => {
       cantpersonas,
       cantnoches,
       pedidoadic,
-      createdInDb //no se pone genres porque es una relacion aparte
+      createdindb //no se pone genres porque es una relacion aparte
     })
    
   console.log(pasajeroCreated); 
