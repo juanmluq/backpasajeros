@@ -48,7 +48,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    createdInDb: {//sirve para llamar solo a lo que esta en bd. Esto sirve para cuando se hace una distincion en lo que esta en bd con lo que esta en la api. 
+    createdindb: {//sirve para llamar solo a lo que esta en bd. Esto sirve para cuando se hace una distincion en lo que esta en bd con lo que esta en la api. 
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true, //esto esta seteado en true hay que hacerlo asi para que funcione
