@@ -17,11 +17,11 @@ const isNotAuthenticated = (req, res, next) => {
   next();
 };
 
-const getDbInfo = async () => {// esta funcion me trae la info de la base de datos
+const getDbInfo = async () => {
     return await Pasajero.findAll({})
 }
 
-const getAllPasajeros = async () => { //aca JUNTO LA DB Y LA INFO DE LA API
+const getAllPasajeros = async () => {
     const dbInfo = await getDbInfo();
     return dbInfo
 }     
@@ -30,17 +30,16 @@ router.get("/pasajeros", async (req, res) => {
     const name = req.query.name
     let pasajerosTotal = await getAllPasajeros();
       if(name) {//si hay un name que me pasen por query
-        let pasajeroName = await pasajerosTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))//agarra el name y fijate si incluye lo
-        // que le pase por query en este caso name. tambien convierte a minuscula para comparar que sea igual indistinto si hay mayusculas. El include es 
+        let pasajeroName = await pasajerosTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))//selecciona el name y detecta si incluye lo
+        // que le pase por query, en este caso name. Tambien convierte a minuscula para comparar que sea igual indistinto si hay mayusculas. El include es 
         // para hacer una busqueda mas global (si pongo === deberia ser exactamente lo mismo).
-        pasajeroName.length ? //si existe videogameName devolver ese videogameName:
+        pasajeroName.length ? //si existe el pasajero devolverlo:
         res.status(200).send(pasajeroName) : //sino hacer:
         res.status(404).send("No esta el pasajero");
       } else { //si no me pasan name por query hacer:
         res.status(200).send(pasajerosTotal)
       }
     })
-
 
  router.post("/pasajero", async (req, res) => {
     let { 
