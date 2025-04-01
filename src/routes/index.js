@@ -29,14 +29,14 @@ const getAllPasajeros = async () => {
 router.get("/pasajeros", async (req, res) => {
     const name = req.query.name
     let pasajerosTotal = await getAllPasajeros();
-      if(name) {//si hay un name que me pasen por query
+      if(name) {
         let pasajeroName = await pasajerosTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))//selecciona el name y detecta si incluye lo
         // que le pase por query, en este caso name. Tambien convierte a minuscula para comparar que sea igual indistinto si hay mayusculas. El include es 
         // para hacer una busqueda mas global (si pongo === deberia ser exactamente lo mismo).
-        pasajeroName.length ? //si existe el pasajero devolverlo:
-        res.status(200).send(pasajeroName) : //sino hacer:
+        pasajeroName.length ? 
+        res.status(200).send(pasajeroName) : 
         res.status(404).send("No esta el pasajero");
-      } else { //si no me pasan name por query hacer:
+      } else {
         res.status(200).send(pasajerosTotal)
       }
     })
@@ -74,7 +74,7 @@ router.get("/pasajeros", async (req, res) => {
  });
 
  router.get("/pasajeros/:id", async (req, res) => {
-    const id = req.params.id; //es lo mismo que hacer const {id}: req.params
+    const id = req.params.id; // const {id}: req.params
     const pasajerosTotal = await getAllPasajeros();
     if(id) {
         let pasajeroId = await pasajerosTotal.filter(el => el.id == id)
